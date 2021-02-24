@@ -6,4 +6,9 @@ export default class Selector extends LightningElement {
     handleProductSelected(evt) {
         this.selectedProductId = evt.detail;
     }
+    userId = Id;
+    @wire(getRecord, { recordId: '$userId', fields })
+    user;
+    get name() {
+        return getFieldValue(this.user.data, NAME_FIELD);
 }
